@@ -8,8 +8,10 @@ import { Input, Output, EventEmitter } from '@angular/core';
 })
 export class ProductAlertsComponent implements OnInit {
   @Input() product; //pass data to child
-  @Output() notify = new EventEmitter();
+  @Output() notify: EventEmitter<any> = new EventEmitter<any>(); // pass data to parent
   constructor() {}
-
+  btnNotifyClicked(): void {
+    this.notify.emit();
+  }
   ngOnInit(): void {}
 }
